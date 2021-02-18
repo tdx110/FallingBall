@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class BallScript : MonoBehaviour
 {
+    [SerializeField]
+    private MainMenuCustomEditor mainMenuCustomEditor;
     [HideInInspector]
     public Vector2 Force = new Vector2(100, 0);
 
@@ -35,5 +37,10 @@ public class BallScript : MonoBehaviour
     {
         if (moveRight) moveRight = false;
         else moveRight = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
     }
 }

@@ -18,7 +18,7 @@ public class FallingBallWindowEditor : EditorWindow
 
     #endregion
     #region Camera Variable
-    private float speedCamera = 0;
+    private float speedCamera = 1;
     private int stepCamera = 1;
     #endregion
     #region MineVariable
@@ -105,68 +105,69 @@ public class FallingBallWindowEditor : EditorWindow
     {
         Image imageBackground = levelSetting.gameObjectBackgroundImage.GetComponent<Image>();
 
-        if (mainCamera.Vector3sCameraPosition.Count == 0)
+        if (mainCamera.Position.Count == 0)
         {
-            mainCamera.Vector3sCameraPosition.Add(levelSetting.gameObjectMainCamera.transform.position);
-            mainCamera.FloatCameraSpeed.Add(speedCamera);
+            mainCamera.Position.Add(levelSetting.gameObjectMainCamera.transform.position);
+            mainCamera.Speed.Add(speedCamera);
             mainCamera.ColorsBackground.Add(imageBackground.color);
             stepCamera = 1;
         }
 
         GUILayout.Space(20);
         EditorGUILayout.LabelField("Camera settings:", HeadLineText);
-        GUILayout.Label("Camera move count: " + mainCamera.Vector3sCameraPosition.Count);
+        GUILayout.Label("Camera move count: " + mainCamera.Position.Count);
         GUILayout.Label("Actual parameter step: " + stepCamera);
+        speedCamera = EditorGUILayout.Slider(speedCamera, 1, 3);
         imageBackground.color = EditorGUILayout.ColorField(imageBackground.color);
 
         #region Button
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Add position"))
         {
-            mainCamera.Vector3sCameraPosition.Add(levelSetting.gameObjectMainCamera.transform.position);
-            mainCamera.FloatCameraSpeed.Add(speedCamera);
+            mainCamera.Position.Add(levelSetting.gameObjectMainCamera.transform.position);
+            mainCamera.Speed.Add(speedCamera);
             mainCamera.ColorsBackground.Add(imageBackground.color);
-            stepCamera = mainCamera.Vector3sCameraPosition.Count;
+            stepCamera = mainCamera.Position.Count;
         }
         if (GUILayout.Button("Remove position"))
         {
-            mainCamera.Vector3sCameraPosition.RemoveAt(mainCamera.Vector3sCameraPosition.Count - 1);
-            mainCamera.FloatCameraSpeed.RemoveAt(mainCamera.FloatCameraSpeed.Count - 1);
+            mainCamera.Position.RemoveAt(mainCamera.Position.Count - 1);
+            mainCamera.Speed.RemoveAt(mainCamera.Speed.Count - 1);
             mainCamera.ColorsBackground.RemoveAt(mainCamera.ColorsBackground.Count - 1);
-            if (stepCamera > mainCamera.Vector3sCameraPosition.Count) stepCamera = mainCamera.Vector3sCameraPosition.Count;
+            if (stepCamera > mainCamera.Position.Count) stepCamera = mainCamera.Position.Count;
         }
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Edit position"))
         {
-            mainCamera.Vector3sCameraPosition[stepCamera - 1] = levelSetting.gameObjectMainCamera.transform.position;
-            mainCamera.FloatCameraSpeed[stepCamera - 1] = speedCamera;
+            mainCamera.Position[stepCamera - 1] = levelSetting.gameObjectMainCamera.transform.position;
+            mainCamera.Speed[stepCamera - 1] = speedCamera;
             mainCamera.ColorsBackground[stepCamera - 1] = imageBackground.color;
         }
         if (GUILayout.Button("Clear all position"))
         {
-            mainCamera.Vector3sCameraPosition.Clear();
-            mainCamera.FloatCameraSpeed.Clear();
+            mainCamera.Position.Clear();
+            mainCamera.Speed.Clear();
             mainCamera.ColorsBackground.Clear();
         }
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Prev. position"))
         {
-            if (stepCamera == 1) stepCamera = mainCamera.Vector3sCameraPosition.Count;
+            if (stepCamera == 1) stepCamera = mainCamera.Position.Count;
             else stepCamera = stepCamera - 1;
 
-            levelSetting.gameObjectMainCamera.transform.position = mainCamera.Vector3sCameraPosition[stepCamera - 1];
-            speedCamera = mainCamera.FloatCameraSpeed[stepCamera - 1];
+            levelSetting.gameObjectMainCamera.transform.position = mainCamera.Position[stepCamera - 1];
+            speedCamera = mainCamera.Speed[stepCamera - 1];
             imageBackground.color = mainCamera.ColorsBackground[stepCamera - 1];
         }
         if (GUILayout.Button("Next position"))
         {
-            if (stepCamera == mainCamera.Vector3sCameraPosition.Count) stepCamera = 1;
+            if (stepCamera == mainCamera.Position.Count) stepCamera = 1;
             else stepCamera = stepCamera + 1;
 
-            levelSetting.gameObjectMainCamera.transform.position = mainCamera.Vector3sCameraPosition[stepCamera - 1];
-            speedCamera = mainCamera.FloatCameraSpeed[stepCamera - 1];
+            levelSetting.gameObjectMainCamera.transform.position = mainCamera.Position[stepCamera - 1];
+            speedCamera = mainCamera.Speed[stepCamera - 1];
             imageBackground.color = mainCamera.ColorsBackground[stepCamera - 1];
         }
         EditorGUILayout.EndHorizontal();
