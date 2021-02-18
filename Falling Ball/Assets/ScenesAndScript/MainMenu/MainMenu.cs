@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
+    [Header("Canvas Nowa Gra")]
+    private GameObject NewGameCanvas;
+    [SerializeField]
+    [Header("Canvas Start")]
+    private GameObject StartCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        PlayerPrefs.SetInt(GlobalVariable.lvlVariablesData[0].GetActualScene, 1);
+        GlobalVariable.ActualGold = PlayerPrefs.GetInt(GlobalVariable.GoldPlayerPrefs,0);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NewGameButton()
     {
-        
+        StartCanvas.SetActive(false);
+        NewGameCanvas.SetActive(true);
+    }
+    public void BackButton()
+    {
+        NewGameCanvas.SetActive(false);
+        StartCanvas.SetActive(true);
+    }
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 }

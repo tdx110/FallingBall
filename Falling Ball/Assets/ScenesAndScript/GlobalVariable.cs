@@ -5,9 +5,19 @@ using UnityEngine.UI;
 
 public static class GlobalVariable
 {
-    #region Miejsce zapisów w PlayerPrefs
-    public static string Gold = "Gold";
+    #region Variable
+    /// <summary>
+    /// Zapisane dane o bie¿¹cym poziomie
+    /// </summary>
+    public static LvlVariable ActualLvlVariable;
+    public static int ActualGold;
+    public static int AdcCount = 4;
 
+    #endregion
+
+    #region Miejsce zapisów w PlayerPrefs
+    public static string GoldPlayerPrefs = "Gold";
+    public static string AdsViverPlayerPrefs = "Ads";
     #endregion
     #region Dane Poziomów
     public static LvlVariable[] lvlVariablesData = new LvlVariable[]
@@ -53,7 +63,7 @@ public class LvlVariable
     /// Nazwa nastêpnej sceny do aktywacji w PlayerPrefs
     /// PlayerPrefs.SetInt(nextLevelPlayerPrefs, 1);
     /// </summary>
-    private string nextLevelPlayerPrefs;
+    private string nextLevelSceneName;
     /// <summary>
     /// Nazwa sceny do wczytania w LoadScene
     /// </summary>
@@ -79,42 +89,42 @@ public class LvlVariable
     #region Konstruktory
     public LvlVariable(string _actualScene, string _sceneNameComplete)
     {
-        nextLevelPlayerPrefs = "";
+        nextLevelSceneName = "";
         actualScene = _actualScene;
         sceneNameComplete = _sceneNameComplete;
         showNextLevelButton = false;
         fontSize = 100;
     }
-    public LvlVariable(string _nextLevelPlayerPrefs, string _actualScene, string _sceneNameComplete)
+    public LvlVariable(string _nextLevelSceneName, string _actualScene, string _sceneNameComplete)
     {
-        nextLevelPlayerPrefs = _nextLevelPlayerPrefs;
+        nextLevelSceneName = _nextLevelSceneName;
         actualScene = _actualScene;
         sceneNameComplete = _sceneNameComplete;
         showNextLevelButton = true;
         fontSize = 100;
     }
-    public LvlVariable(string _nextLevelPlayerPrefs, string _actualScene, string _sceneNameComplete, bool _showNextLevelButton)
+    public LvlVariable(string _nextLevelSceneName, string _actualScene, string _sceneNameComplete, bool _showNextLevelButton)
     {
-        nextLevelPlayerPrefs = _nextLevelPlayerPrefs;
+        nextLevelSceneName = _nextLevelSceneName;
         actualScene = _actualScene;
         sceneNameComplete = _sceneNameComplete;
         showNextLevelButton = _showNextLevelButton;
         fontSize = 100;
     }
-    public LvlVariable(string _nextLevelPlayerPrefs, string _actualScene, string _sceneNameComplete,
+    public LvlVariable(string _nextLevelSceneName, string _actualScene, string _sceneNameComplete,
         string _textButton, bool _showNextLevelButton)
     {
-        nextLevelPlayerPrefs = _nextLevelPlayerPrefs;
+        nextLevelSceneName = _nextLevelSceneName;
         actualScene = _actualScene;
         sceneNameComplete = _sceneNameComplete;
         showNextLevelButton = _showNextLevelButton;
         textButton = _textButton;
         fontSize = 100;
     }
-    public LvlVariable(string _nextLevelPlayerPrefs, string _actualScene, string _sceneNameComplete,
+    public LvlVariable(string _nextLevelSceneName, string _actualScene, string _sceneNameComplete,
     string _textButton, int _fontSize, bool _showNextLevelButton)
     {
-        nextLevelPlayerPrefs = _nextLevelPlayerPrefs;
+        nextLevelSceneName = _nextLevelSceneName;
         actualScene = _actualScene;
         sceneNameComplete = _sceneNameComplete;
         showNextLevelButton = _showNextLevelButton;
@@ -129,51 +139,50 @@ public class LvlVariable
     /// Zwraca gdzie zapisany w PlayerPrefs jest nastêpny poziom
     /// </summary>
     /// <returns></returns>
-    public string GetNextLevelPlayerPrefs()
+    public string GetNextLevelSceneName
     {
-        return nextLevelPlayerPrefs;
+        get { return nextLevelSceneName; }
     }
     /// <summary>
     /// Zwraca nazwê wczytanej sceny
     /// </summary>
     /// <returns></returns>
-    public string GetActualScene()
+    public string GetActualScene
     {
-        return actualScene;
+        get { return actualScene; }
     }
     /// <summary>
     /// Zwraca nazwê sceny do wyœwietlenia
     /// Na koniec poziomu
     /// </summary>
     /// <returns></returns>
-    public string GetSceneNameComplete()
+    public string GetSceneNameComplete
     {
-        return sceneNameComplete;
+        get { return sceneNameComplete; }
     }
     /// <summary>
     /// Zwraca napis jaki ma siê wyœwietlaæ na przycisku
     /// </summary>
     /// <returns></returns>
-    public string GetTextButton()
+    public string GetTextButton
     {
-        return textButton;
+        get { return textButton; }
     }
     /// <summary>
     /// Zwraca wielkoœæ tekstu jaka ma byæ w New Game
     /// </summary>
     /// <returns></returns>
-    public int GetFontSize()
+    public int GetFontSize
     {
-        return fontSize;
+        get { return fontSize; }
     }
     /// <summary>
     /// Czy ma wyœwietliæ przycisk
     /// </summary>
     /// <returns></returns>
-    public bool GetShowNextLevelButton()
+    public bool GetShowNextLevelButton
     {
-        return showNextLevelButton;
+        get { return showNextLevelButton; }
     }
-
     #endregion
 }

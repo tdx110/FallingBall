@@ -6,7 +6,10 @@ using UnityEditor;
 
 public class LevelSetting : MonoBehaviour
 {
-  
+    #region Variable
+    public bool GlobalMoveIsland = false;
+    public bool GlobalMoveMine = false;
+    #endregion
     #region Obiekty
     public GameObject gameObjectMainCamera;
     public GameObject gameObjectBackgroundImage;
@@ -14,14 +17,9 @@ public class LevelSetting : MonoBehaviour
     public GameObject gameObjectPlayerUiCanvas;
     public GameObject gameObjectPauseCanvas;
     public GameObject gameObjectLevelCompleteCanvas;
+    public GameObject gameObjectNextLevel;
     public GameObject gameObjectGameOverCanvas;
-    public GameObject gameObjectCanvasControl;
-    public GameObject gameObjectlLeftButton;
-    public GameObject gameObjectlRightButton;
+    public GameObject gameObjectControlCanvas;
     public GameObject gameObjectScallingObject;
-    #endregion
-    #region Variable
-    public bool GlobalMoveMine = false;
-    public bool GlobalMoveIsland = false;
     #endregion
 }

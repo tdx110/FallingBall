@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ScallingObject : MonoBehaviour
 {
-    public RectTransform DefautCanvasRecttransform;
-
+    // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<RectTransform>().sizeDelta = DefautCanvasRecttransform.sizeDelta;
-        gameObject.GetComponent<RectTransform>().localScale = DefautCanvasRecttransform.localScale;
+        
     }
 
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
