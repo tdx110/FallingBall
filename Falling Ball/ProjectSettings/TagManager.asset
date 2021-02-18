@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: "T\u0142o"
+    uniqueID: 2715101025
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Chmury
+    uniqueID: 1936375821
+    locked: 0
+  - name: Kula
+    uniqueID: 27133769
+    locked: 0
+  - name: Wyspa
+    uniqueID: 539563345
+    locked: 0
+  - name: Miny
+    uniqueID: 1060580139
+    locked: 0
+  - name: Canvas
+    uniqueID: 77298065
+    locked: 0
