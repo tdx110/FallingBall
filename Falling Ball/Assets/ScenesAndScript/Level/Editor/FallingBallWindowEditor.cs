@@ -25,6 +25,9 @@ public class FallingBallWindowEditor : EditorWindow
     private float speedMine = 0;
     private int stepMine = 1;
     #endregion
+    #region BallVariable
+    private int forceX;
+    #endregion
     #region IslandVariable
     private float speedIsland = 0;
     private int stepIsland = 1;
@@ -84,19 +87,22 @@ public class FallingBallWindowEditor : EditorWindow
         {
             if (Selection.activeObject.name.Contains("Island"))
             {
-                selectIsland();
+                if (Selection.activeGameObject != null) selectIsland();
             }
             else if (Selection.activeObject.name.Contains("Mine"))
             {
-                selectMine();
+                if (Selection.activeGameObject != null) selectMine();
             }
             else if (Selection.activeObject.name.Contains("Ball"))
             {
-                selectBall();
+                if (Selection.activeGameObject != null) selectBall();
             }
         }
     }
+    private void Update()
+    {
 
+    }
     //////////////////////////////////////////////////
     //////////////////////////////////////////////////
     //////////////////////////////////////////////////
@@ -117,7 +123,7 @@ public class FallingBallWindowEditor : EditorWindow
         EditorGUILayout.LabelField("Camera settings:", HeadLineText);
         GUILayout.Label("Camera move count: " + mainCamera.Position.Count);
         GUILayout.Label("Actual parameter step: " + stepCamera);
-        speedCamera = EditorGUILayout.Slider(speedCamera, 1, 3);
+        speedCamera = EditorGUILayout.Slider(speedCamera, 0.2f, 3);
         imageBackground.color = EditorGUILayout.ColorField(imageBackground.color);
 
         #region Button
@@ -264,6 +270,9 @@ public class FallingBallWindowEditor : EditorWindow
             float ratio = 234;
             GameObject gameObject = (GameObject)Instantiate((GameObject)Resources.Load("GameObject/Player/Ball"));
             gameObject.transform.SetParent(levelSetting.gameObjectScallingObject.transform, false);
+            gameObject.GetComponent<BallScript>().levelSetting = levelSetting;
+            gameObject.GetComponent<BallScript>().mainMenuCustomEditor =
+                levelSetting.gameObjectMainMenuCanvas.GetComponent<MainMenuCustomEditor>();
             Vector3 vector3 = levelSetting.gameObjectMainCamera.transform.localPosition;
             vector3 = new Vector3(vector3.x * ratio, vector3.y * ratio, 0);
             gameObject.transform.localPosition = vector3;
@@ -321,6 +330,7 @@ public class FallingBallWindowEditor : EditorWindow
         GUILayout.Label("Steps: " + islandScript.Position.Count);
         GUILayout.Label("Actual steps: " + stepIsland);
         speedIsland = EditorGUILayout.Slider("Speed Island:", speedIsland, 0, 4);
+        islandScript.ValueMoney = EditorGUILayout.IntSlider("How much Money:", islandScript.ValueMoney, 0, 10);
         islandScript.Moving = EditorGUILayout.Toggle("Enable move:", islandScript.Moving);
         EditorGUILayout.BeginHorizontal();
         if (GUILayout.Button("Add position"))
@@ -385,7 +395,7 @@ public class FallingBallWindowEditor : EditorWindow
     }
     private void selectBall()
     {
-
+        GUILayout.Label("Ball Options:", HeadLineText);
     }
     private void selectMine()
     {

@@ -11,28 +11,26 @@ public class UiButtonLevelScript : MonoBehaviour
     public Button ButtonLevel;
     [Header("Pole tekstowe.")]
     public Text TextButton;
-    [Header("Dane do danego poziomu.")]
-    public LvlVariable LvlVariableData;
     [Header("Wybrany poziom do obs³ugi.")]
     public GlobalVariable.LvlList LvlSelect;
     #endregion
     #region Function
     public void SetButton()
     {
-        LvlVariableData = GlobalVariable.lvlVariablesData[(int)LvlSelect];
-        TextButton.text = LvlVariableData.GetTextButton;
-        ButtonLevel.gameObject.name = "UiButtonLevel " + LvlVariableData.GetTextButton;
+        TextButton.text = GlobalVariable.lvlVariablesData[(int)LvlSelect].GetTextButton;
+        ButtonLevel.gameObject.name = "UiButtonLevel " + GlobalVariable.lvlVariablesData[(int)LvlSelect].GetTextButton;
     }
     private void Awake()
     {
         SetButton();
-        if (PlayerPrefs.GetInt(LvlVariableData.GetActualScene, 0) == 1) ButtonLevel.interactable = true;
+        if (PlayerPrefs.GetInt(GlobalVariable.lvlVariablesData[(int)LvlSelect].GetActualScene, 0) == 1) ButtonLevel.interactable = true;
         else ButtonLevel.interactable = false;
     }
     public void ClickButton()
     {
-        GlobalVariable.ActualLvlVariable = LvlVariableData;
-        SceneManager.LoadSceneAsync(LvlVariableData.GetActualScene);
+        GlobalVariable.IndexLevel = (int)LvlSelect;
+        GlobalVariable.ActualLvlVariable = GlobalVariable.lvlVariablesData[(int)LvlSelect];
+        SceneManager.LoadSceneAsync(GlobalVariable.lvlVariablesData[(int)LvlSelect].GetActualScene);
     }
     #endregion
 

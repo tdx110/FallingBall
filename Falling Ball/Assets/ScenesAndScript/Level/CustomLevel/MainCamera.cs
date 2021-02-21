@@ -49,7 +49,9 @@ public class MainCamera : MonoBehaviour
             float deltaDistance;
             float distance;
 
-            deltaDistance = Time.deltaTime * Speed[step];
+            if (step == 0) deltaDistance = Time.deltaTime * Speed[step];
+            else deltaDistance = Time.deltaTime * Speed[step - 1];
+
             distance = Vector3.Magnitude(gameObject.transform.position - Position[step]);
             deltaColor = (imageBackgroiund.color - ColorsBackground[step]) / distance;
             if (Mathf.Abs(actualPosition.x - Position[step].x) > deltaDistance)

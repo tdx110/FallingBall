@@ -11,11 +11,12 @@ public class MainMenuCustomEditor : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1;
-        //ShowPlay();
-        //if (GlobalVariable.ActualLvlVariable != null)
-        //    levelSetting.gameObjectNextLevel.SetActive(GlobalVariable.ActualLvlVariable.GetShowNextLevelButton);
-        //PlayerPrefs.SetInt(GlobalVariable.ActualLvlVariable.GetActualScene,1);
+        GlobalVariable.ActualLvlVariable = GlobalVariable.lvlVariablesData[GlobalVariable.IndexLevel];
+        levelSetting.gameObjectNextLevel.SetActive(GlobalVariable.ActualLvlVariable.GetShowNextLevelButton);
+        levelSetting.gameObjectCoinText.GetComponent<Text>().text =
+            PlayerPrefs.GetInt(GlobalVariable.GoldPlayerPrefs, 0).ToString();
+        PlayerPrefs.SetInt(GlobalVariable.ActualLvlVariable.GetActualScene, 1);
+        ShowPlay();
     }
     public void ShowPause()
     {
@@ -31,6 +32,7 @@ public class MainMenuCustomEditor : MonoBehaviour
     }
     public void ShowPlay()
     {
+        levelSetting.gameObjectUpLimit.GetComponent<Reklama>().IncCount();
         Time.timeScale = 1;
         levelSetting.gameObjectPlayerUiCanvas.SetActive(true);
         levelSetting.gameObjectPauseCanvas.SetActive(false);
@@ -42,6 +44,7 @@ public class MainMenuCustomEditor : MonoBehaviour
     {
         if (!levelSetting.gameObjectGameOverCanvas.activeSelf)
         {
+            PlayerPrefs.SetInt(GlobalVariable.ActualLvlVariable.GetNextLevelSceneName, 1);
             levelSetting.gameObjectPlayerUiCanvas.SetActive(true);
             levelSetting.gameObjectPauseCanvas.SetActive(false);
             levelSetting.gameObjectLevelCompleteCanvas.SetActive(true);
@@ -51,6 +54,7 @@ public class MainMenuCustomEditor : MonoBehaviour
     }
     public void ShowGameOver()
     {
+        Time.timeScale = 0;
         if (!levelSetting.gameObjectLevelCompleteCanvas.activeSelf)
         {
             levelSetting.gameObjectPlayerUiCanvas.SetActive(true);
@@ -70,7 +74,7 @@ public class MainMenuCustomEditor : MonoBehaviour
     }
     public void NextLevelButton()
     {
+        GlobalVariable.IndexLevel += 1;
         SceneManager.LoadSceneAsync(GlobalVariable.ActualLvlVariable.GetNextLevelSceneName);
-        PlayerPrefs.SetInt(GlobalVariable.ActualLvlVariable.GetNextLevelSceneName, 1);
     }
 }

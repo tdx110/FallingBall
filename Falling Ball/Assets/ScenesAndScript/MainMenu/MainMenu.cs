@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt(GlobalVariable.lvlVariablesData[0].GetActualScene, 1);
-        GlobalVariable.ActualGold = PlayerPrefs.GetInt(GlobalVariable.GoldPlayerPrefs,0);
+        PlayerPrefs.GetInt(GlobalVariable.GoldPlayerPrefs,0);
     }
 
     public void NewGameButton()

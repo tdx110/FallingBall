@@ -16,7 +16,7 @@ TextureImporter:
     second: Gold
   - first:
       213: -1874404830867476596
-    second: Czarne Tlo
+    second: Arrow
   - first:
       213: 3802766169507462252
     second: Save
@@ -329,6 +329,27 @@ TextureImporter:
       bones: []
       spriteID: 9c017d5884b331320800000000000000
       internalID: 2527428998554128585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 734
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f2ed2ccb6ccf5e0800000000000000
+      internalID: -1874404830867476596
       vertices: []
       indices: 
       edges: []

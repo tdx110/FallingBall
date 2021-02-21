@@ -6,28 +6,34 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedScenePath-0:
-      value: 22424703114646680e0b0227036c721518023f8fce27313e2867083debf42d
-      flags: 0
-    RecentlyUsedScenePath-1:
-      value: 22424703114646680e0b0227036c73061a46563f22213229
-      flags: 0
-    RecentlyUsedScenePath-2:
-      value: 22424703114646680e0b0227036c73061a45563f22213229
-      flags: 0
-    RecentlyUsedScenePath-3:
-      value: 22424703114646680e0b0227036c73061a44563f22213229
-      flags: 0
-    RecentlyUsedScenePath-4:
       value: 22424703114646680e0b0227036c73061a43563f22213229
       flags: 0
-    RecentlyUsedScenePath-5:
+    RecentlyUsedScenePath-1:
       value: 22424703114646680e0b0227036c72111f19352f223d68252320092a
       flags: 0
+    RecentlyUsedScenePath-2:
+      value: 22424703114646680e0b02270302511425140a233c3c691c283f183fadcc312ee7eb79c5f1366e722c0ce6281d
+      flags: 0
+    RecentlyUsedScenePath-3:
+      value: 224247031146467e0c1d150314355a02021e0b2f631b273d3d25187cd1e13928eee205eae2343a722c0ce6281d
+      flags: 0
+    RecentlyUsedScenePath-4:
+      value: 22424703114646680e0b02270302511425140a233c3c691c283f183fadc3212bf6e83bc5e22c3a30762ef9304a2b0f36e613
+      flags: 0
+    RecentlyUsedScenePath-5:
+      value: 22424703114646680e0b02270302511425140a233c3c691c283f183fadcc312ee7eb79c5f1366d731514e36e4a2b0f36e613
+      flags: 0
     RecentlyUsedScenePath-6:
-      value: 22424703114646680e0b02270302511425140a233c3c691d2c20131ee7ee2177cfe63fe7ca3f31297717e1351027
+      value: 22424703114646680e0b02270302511425140a233c3c691c283f183fadcc312ee7eb79c5f1366c731514e36f4a2b0f36e613
       flags: 0
     RecentlyUsedScenePath-7:
-      value: 22424703114646680e0b02270302511425140a233c3c691c283f183fadc3212bf6e83bc5e22c3a30762ef9304a2b0f36e613
+      value: 22424703114646680e0b02270302511425140a233c3c691c283f183fadcc312ee7eb79c5f1366b731514e3684a2b0f36e613
+      flags: 0
+    RecentlyUsedScenePath-8:
+      value: 22424703114646680e0b02270302511425140a233c3c691c283f183fadcc312ee7eb79c5f1366e731514e36d4a2b0f36e613
+      flags: 0
+    RecentlyUsedScenePath-9:
+      value: 22424703114646680e0b02270302511425140a233c3c691d2c20131ee7ee2177cfe63fe7ca3f31297717e1351027
       flags: 0
     UnityRemoteCompression:
       value: 29617121

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8289359167556420873}
   - component: {fileID: 8289359167556420870}
   - component: {fileID: 454734819534042580}
+  - component: {fileID: 6452186567004497620}
   m_Layer: 5
   m_Name: Island 2
   m_TagString: Untagged
@@ -89,8 +90,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSetting: {fileID: 0}
-  Position: []
-  Speed: []
+  Position:
+  - {x: 540, y: 1170, z: 0}
+  Speed:
+  - 1
   Moving: 0
   MovingAlways: 0
   DestroyWhenInvisible: 0
+  ValueMoney: 1
+--- !u!61 &6452186567004497620
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289359167556420868}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 4.7}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 93, y: 40}
+  m_EdgeRadius: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class IslandScript : MonoBehaviour
 {
-    [HideInInspector]
     public LevelSetting levelSetting;
     [HideInInspector]
     public List<Vector3> Position = new List<Vector3>(0);
@@ -17,19 +16,18 @@ public class IslandScript : MonoBehaviour
     [HideInInspector]
     public bool DestroyWhenInvisible = false;
 
+    public int ValueMoney = 1;
+
 
     private Vector3 actualPosition;
     private int step;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         actualPosition = this.gameObject.transform.position;
         step = 0;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (levelSetting.GlobalMoveIsland)
         {

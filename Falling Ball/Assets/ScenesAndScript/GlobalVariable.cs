@@ -9,9 +9,8 @@ public static class GlobalVariable
     /// <summary>
     /// Zapisane dane o bie¿¹cym poziomie
     /// </summary>
+    public static int IndexLevel;
     public static LvlVariable ActualLvlVariable;
-    public static int ActualGold;
-    public static int AdcCount = 4;
 
     #endregion
 
@@ -22,9 +21,9 @@ public static class GlobalVariable
     #region Dane Poziomów
     public static LvlVariable[] lvlVariablesData = new LvlVariable[]
         {
-          new LvlVariable("Lvl2","Lvl1","Lv 1","1", false),
-          new LvlVariable("Lvl3","Lvl2","Lv 2","2", false),
-          new LvlVariable("Lvl4","Lvl3","Lv 3","3", false),
+          new LvlVariable("Lvl2","Lvl1","Lv 1","1", true),
+          new LvlVariable("Lvl3","Lvl2","Lv 2","2", true),
+          new LvlVariable("Lvl4","Lvl3","Lv 3","3", true),
           new LvlVariable("Lvl5","Lvl4","Lv 4","4", false),
           new LvlVariable("Lvl6","Lvl5","Lv 5","5", false),
           new LvlVariable("Lvl7","Lvl6","Lv 6","6", false),

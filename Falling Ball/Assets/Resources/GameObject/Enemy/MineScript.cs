@@ -1,15 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.Jobs;
-//using Unity.Mathematics;
-//using Unity.Jobs;
-//using Unity.Collections;
-//using Unity.Burst;
 
 public class MineScript : MonoBehaviour
 {
-    [HideInInspector]
     public LevelSetting levelSetting;
     [HideInInspector]
     public List<Vector3> Position = new List<Vector3>(0);
@@ -46,7 +40,7 @@ public class MineScript : MonoBehaviour
             else
             {
                 //Mina porusza sie w zasiêgu kamery
-                if (gameobjectVisiable())
+                if (gameobjectVisiable(12))
                 {
                     if (Moving)
                     {
@@ -55,21 +49,18 @@ public class MineScript : MonoBehaviour
                 }
             }
         }
-
         //Niszczy obiekt kiedy niewidoczny
-        if (gameobjectVisiable()) DestroyWhenInvisible = true;
-        else if (DestroyWhenInvisible && !gameobjectVisiable())
+        if (gameobjectVisiable(15)) DestroyWhenInvisible = true;
+        else if (DestroyWhenInvisible && !gameobjectVisiable(15))
         {
             Destroy(gameObject);
         }
     }
-    private bool gameobjectVisiable()
+    private bool gameobjectVisiable(int distance)
     {
-        if (Mathf.Abs(gameObject.transform.position.y - levelSetting.gameObjectMainCamera.transform.position.y) < 6) return true;
+        if (Mathf.Abs(gameObject.transform.position.y - levelSetting.gameObjectMainCamera.transform.position.y) < distance) return true;
         else return false;
     }
-
-    //Funkcja odpowiadaj¹ca za poruszanie obiektem
     private void moveMine()
     {
         if (actualPosition == Position[step])

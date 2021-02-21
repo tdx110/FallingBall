@@ -12,9 +12,11 @@ public class LevelSetting : MonoBehaviour
     #endregion
     #region Obiekty
     public GameObject gameObjectMainCamera;
+    public GameObject gameObjectUpLimit;
     public GameObject gameObjectBackgroundImage;
     public GameObject gameObjectMainMenuCanvas;
     public GameObject gameObjectPlayerUiCanvas;
+    public GameObject gameObjectCoinText;
     public GameObject gameObjectPauseCanvas;
     public GameObject gameObjectLevelCompleteCanvas;
     public GameObject gameObjectNextLevel;
